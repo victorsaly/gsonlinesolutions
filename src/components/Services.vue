@@ -10,18 +10,17 @@
       
       <div class="services-intro fade-in-up-delay-2">
         <div class="intro-content">
-          <h3>Invest in a service that can scale alongside your business</h3>
+          <h3>Tailored solutions that grow with your business</h3>
           <p>
-            We aim to be more than just your accountant; we want to be your finance business partner. 
-            We take the time to get to know you and understand your goals, working alongside you to 
-            achieve your business plans. With our proactive finance and accounting services, you'll 
-            have the financial clarity you need to plan ahead and succeed.
+            At GS Online Solutions, we understand that every business is unique. Founded with 
+            a commitment to personalized service, we work closely with each client to understand 
+            your specific needs and deliver solutions that drive growth and financial clarity.
           </p>
         </div>
       </div>
       
       <div class="services-grid">
-        <div class="service-card" v-for="service in services" :key="service.id">
+        <div class="service-card slide-in-up" v-for="service in services" :key="service.id">
           <div class="service-icon" v-html="service.icon"></div>
           <h4>{{ service.title }}</h4>
           <p>{{ service.description }}</p>
@@ -31,16 +30,22 @@
         </div>
       </div>
       
-      <div class="services-cta text-center">
+      <div class="services-cta text-center slide-in-up">
         <h3>Ready to streamline your finances?</h3>
         <p>Get in touch to discuss how we can support your business growth</p>
-        <a href="#contact" class="btn btn-primary btn-large">Explore Our Services</a>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn btn-primary btn-large">Get Started</a>
+          <a href="/extended-services" class="btn btn-secondary btn-large">Explore Extended Services</a>
+        </div>
+        <p class="cta-note">From bookkeeping to wealth management - we have expert partners for every need</p>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
+import { onMounted, onUnmounted } from 'vue'
+
 const services = [
   {
     id: 1,
@@ -127,6 +132,39 @@ const services = [
     ]
   }
 ]
+
+// Intersection Observer for scroll animations
+let observer = null
+
+const initializeScrollAnimations = () => {
+  const options = {
+    root: null,
+    rootMargin: '0px 0px -100px 0px',
+    threshold: 0.1
+  }
+
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in')
+      }
+    })
+  }, options)
+
+  // Observe elements with animation classes
+  const animationElements = document.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-up, .fade-in-up, .fade-in-up-delay, .fade-in-up-delay-2')
+  animationElements.forEach(el => observer.observe(el))
+}
+
+onMounted(() => {
+  setTimeout(initializeScrollAnimations, 100)
+})
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect()
+  }
+})
 </script>
 
 <style scoped>
@@ -239,6 +277,21 @@ const services = [
   margin-bottom: 2rem;
 }
 
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.cta-note {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  font-style: italic;
+  margin: 0;
+}
+
 @media (max-width: 768px) {
   .services-grid {
     grid-template-columns: 1fr;
@@ -272,5 +325,69 @@ const services = [
   .services-cta h3 {
     font-size: 1.5rem;
   }
+}
+
+/* Scroll-triggered animations */
+.slide-in-left,
+.slide-in-right,
+.slide-in-up,
+.fade-in-up,
+.fade-in-up-delay,
+.fade-in-up-delay-2 {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-in-left {
+  transform: translateX(-50px);
+}
+
+.slide-in-right {
+  transform: translateX(50px);
+}
+
+.slide-in-up,
+.fade-in-up,
+.fade-in-up-delay,
+.fade-in-up-delay-2 {
+  transform: translateY(30px);
+}
+
+.fade-in-up-delay {
+  transition-delay: 0.2s;
+}
+
+.fade-in-up-delay-2 {
+  transition-delay: 0.4s;
+}
+
+/* Animation active state */
+.slide-in-left.animate-in,
+.slide-in-right.animate-in,
+.slide-in-up.animate-in,
+.fade-in-up.animate-in,
+.fade-in-up-delay.animate-in,
+.fade-in-up-delay-2.animate-in {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+/* Staggered animation for service cards */
+.service-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-card:nth-child(1) { transition-delay: 0.1s; }
+.service-card:nth-child(2) { transition-delay: 0.2s; }
+.service-card:nth-child(3) { transition-delay: 0.3s; }
+.service-card:nth-child(4) { transition-delay: 0.4s; }
+.service-card:nth-child(5) { transition-delay: 0.5s; }
+.service-card:nth-child(6) { transition-delay: 0.6s; }
+
+.service-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>

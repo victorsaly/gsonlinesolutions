@@ -1,0 +1,17 @@
+<svg width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Xero brand background -->
+  <rect width="120" height="60" rx="8" fill="#13B5EA"/>
+  
+  <!-- Xero logo -->
+  <g transform="translate(20, 15)">
+    <!-- X shape -->
+    <path d="M8 8 L22 22 M22 8 L8 22" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Text "ero" -->
+    <text x="30" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">ero</text>
+  </g>
+  
+  <!-- Certified badge -->
+  <rect x="5" y="35" width="110" height="20" rx="10" fill="white" opacity="0.9"/>
+  <text x="60" y="47" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#13B5EA" text-anchor="middle">ADVISOR CERTIFIED</text>
+</svg>

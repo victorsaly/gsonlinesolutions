@@ -4,10 +4,11 @@
       <div class="footer-content">
         <div class="footer-section">
           <div class="footer-brand">
-            <img src="/logo_gs.svg" alt="GS Online Services" class="footer-logo" />
+            <img src="/logo_gs.svg" alt="GS Online Solutions" class="footer-logo" />
             <p class="footer-description">
-              Your trusted finance business partner providing professional accounting 
-              and financial services to help your business grow with confidence.
+              Founded by Gosia Saly, GS Online Solutions provides personalized accounting 
+              and financial solutions for growing businesses. We're committed to building 
+              lasting partnerships that drive your success.
             </p>
           </div>
         </div>
@@ -42,8 +43,8 @@
               </a>
             </p>
             <p>
-              <a href="tel:+44123456789">
-                +44 (0) 123 456 789
+              <a href="tel:+447969526956">
+                +44 (0)7969526956
               </a>
             </p>
             <div class="social-links">
@@ -64,7 +65,7 @@
       
       <div class="footer-bottom">
         <div class="footer-copyright">
-          <p>&copy; {{ currentYear }} GS Online Services. All rights reserved.</p>
+          <p>&copy; {{ currentYear }} GS Online Solutions. All rights reserved. Founded by Gosia Saly.</p>
         </div>
         <div class="footer-legal">
           <p>Company Registration Number: 12345678 | VAT Number: 123456789</p>

@@ -4,12 +4,13 @@
       <nav class="nav">
         <div class="nav-brand">
           <a href="/" class="brand-link">
-            <img src="/logo_gs.svg" alt="GS Online Services" class="logo" />
+            <img src="/logo_gs.svg" alt="GS Online Solutions" class="logo" />
           </a>
         </div>
         
         <div class="nav-menu" :class="{ 'nav-menu-open': isMenuOpen }">
           <a href="#services" class="nav-link" @click="closeMenu">Services</a>
+          <a href="/extended-services" class="nav-link" @click="closeMenu">Extended Services</a>
           <a href="#about" class="nav-link" @click="closeMenu">About</a>
           <a href="#contact" class="nav-link" @click="closeMenu">Contact</a>
           <a href="#contact" class="btn btn-primary" @click="closeMenu">Get Started</a>

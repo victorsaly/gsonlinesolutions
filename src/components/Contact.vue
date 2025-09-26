@@ -32,7 +32,7 @@
               </div>
               <div class="method-content">
                 <h4>Phone</h4>
-                <a href="tel:+44123456789">+44 (0) 123 456 789</a>
+                <a href="tel:+447969526956">+44 (0)7969526956</a>
               </div>
             </div>
             
@@ -148,7 +148,7 @@
       <!-- Trust indicators -->
       <div class="trust-section">
         <div class="trust-content">
-          <h3>Why Choose GS Online Services?</h3>
+          <h3>Why Choose GS Online Solutions?</h3>
           <div class="trust-indicators">
             <div class="trust-item">
               <div class="trust-icon">

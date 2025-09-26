@@ -1,6 +1,6 @@
-# GS Online Services Website
+# GS Online Solutions Website
 
-A professional, modern website for GS Online Services - providing expert accounting and finance solutions for businesses of all sizes.
+A professional, modern website for GS Online Solutions - providing expert accounting and finance solutions for businesses of all sizes.
 
 ## 🚀 Features
 

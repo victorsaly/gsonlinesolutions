@@ -1,0 +1,39 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <!-- Professional accounting background - Growth theme -->
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#87735E;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#52736C;stop-opacity:0.85" />
+    </linearGradient>
+    <pattern id="hexagon" width="80" height="70" patternUnits="userSpaceOnUse">
+      <polygon points="40,5 70,25 70,55 40,75 10,55 10,25" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background gradient -->
+  <rect width="100%" height="100%" fill="url(#grad3)"/>
+  
+  <!-- Hexagon pattern -->
+  <rect width="100%" height="100%" fill="url(#hexagon)"/>
+  
+  <!-- Growth arrow elements -->
+  <g opacity="0.12" fill="white">
+    <!-- Upward arrows -->
+    <polygon points="300,600 320,580 340,600 330,590 330,640 310,640 310,590"/>
+    <polygon points="600,500 620,480 640,500 630,490 630,540 610,540 610,490"/>
+    <polygon points="900,400 920,380 940,400 930,390 930,440 910,440 910,390"/>
+    <polygon points="1200,300 1220,280 1240,300 1230,290 1230,340 1210,340 1210,290"/>
+  </g>
+  
+  <!-- Bar chart elements -->
+  <g opacity="0.1" fill="white">
+    <rect x="1400" y="700" width="40" height="200"/>
+    <rect x="1450" y="650" width="40" height="250"/>
+    <rect x="1500" y="600" width="40" height="300"/>
+    <rect x="1550" y="550" width="40" height="350"/>
+  </g>
+  
+  <!-- Floating elements -->
+  <circle cx="200" cy="200" r="80" fill="rgba(255,255,255,0.04)"/>
+  <ellipse cx="1700" cy="800" rx="120" ry="80" fill="rgba(255,255,255,0.03)"/>
+</svg>
