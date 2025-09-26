@@ -1,0 +1,8 @@
+{
+  "name": "gsonlineservices-website",
+  "description": "Professional accounting and finance services website for GS Online Services",
+  "version": "1.0.0",
+  "keywords": ["accounting", "bookkeeping", "tax preparation", "financial services", "business", "outsourcing"],
+  "author": "GS Online Services",
+  "license": "MIT"
+}
