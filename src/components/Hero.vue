@@ -21,11 +21,11 @@
             <!-- Trust Indicators -->
             <div class="trust-indicators">
               <div class="trust-item">
-                <img src="/xero-logo.svg" alt="Xero Certified" class="cert-logo">
+                <img src="/xero-logo.png" alt="Xero Certified" class="cert-logo">
                 <span>Xero Certified</span>
               </div>
               <div class="trust-item">
-                <img src="/icb-logo.svg" alt="ICB Member" class="cert-logo">
+                <img src="/icb_logo.png" alt="ICB Member" class="cert-logo">
                 <span>ICB Member</span>
               </div>
               <div class="trust-item">
@@ -134,14 +134,15 @@ onMounted(() => {
       const heroSwiper = new window.Swiper('.hero-slider', {
         loop: true,
         autoplay: {
-          delay: 6000,
+          delay: 8000,
           disableOnInteraction: false,
         },
         effect: 'fade',
         fadeEffect: {
           crossFade: true
         },
-        speed: 1000,
+        speed: 2000,
+        allowTouchMove: true,
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
@@ -150,6 +151,27 @@ onMounted(() => {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
+        // Add smooth parallax effect
+        on: {
+          slideChangeTransitionStart: function () {
+            // Add zoom out effect to current slide
+            const activeSlide = this.slides[this.activeIndex];
+            if (activeSlide) {
+              activeSlide.style.transform = 'scale(1.05)';
+            }
+          },
+          slideChangeTransitionEnd: function () {
+            // Reset all slides
+            this.slides.forEach(slide => {
+              slide.style.transform = 'scale(1)';
+            });
+            // Add zoom in effect to new active slide
+            const activeSlide = this.slides[this.activeIndex];
+            if (activeSlide) {
+              activeSlide.style.transform = 'scale(1.02)';
+            }
+          }
+        }
       })
     }
   }, 100)
@@ -177,12 +199,27 @@ onMounted(() => {
   background-position: center;
   color: var(--whiteColor);
   position: relative;
+  overflow: hidden;
 }
 
 .hero-slide-1 {
-  background: linear-gradient(135deg, rgba(0, 37, 44, 0.55), rgba(57, 55, 55, 0.35)), url('/hero/hero_slide_1.jpg');
+  background: linear-gradient(135deg, rgba(0, 37, 44, 0.65), rgba(57, 55, 55, 0.55)), url('/hero/hero_slide_1.jpg');
   background-size: cover;
   background-position: center;
+}
+
+.hero-slide-1::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: linear-gradient(135deg, rgba(0, 37, 44, 0.65), rgba(57, 55, 55, 0.55)), url('/hero/hero_slide_1.jpg');
+  background-size: cover;
+  background-position: center;
+  animation: slowZoom 12s ease-in-out infinite alternate;
+  z-index: -1;
 }
 
 .hero-slide-2 {
@@ -191,10 +228,38 @@ onMounted(() => {
   background-position: center;
 }
 
+.hero-slide-2::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: linear-gradient(135deg, rgba(0, 37, 44, 0.75), rgba(57, 55, 55, 0.65)), url('/services/service-2.jpg');
+  background-size: cover;
+  background-position: center;
+  animation: slowZoom 15s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
 .hero-slide-3 {
   background: linear-gradient(135deg, rgba(0, 37, 44, 0.75), rgba(57, 55, 55, 0.65)), url('/services/service-3.jpg');
   background-size: cover;
   background-position: center;
+}
+
+.hero-slide-3::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: linear-gradient(135deg, rgba(0, 37, 44, 0.75), rgba(57, 55, 55, 0.65)), url('/services/service-3.jpg');
+  background-size: cover;
+  background-position: center;
+  animation: slowZoom 18s ease-in-out infinite alternate;
+  z-index: -1;
 }
 
 
@@ -205,6 +270,27 @@ onMounted(() => {
   padding: 0 20px;
   position: relative;
   z-index: 10;
+  animation: floatContent 8s ease-in-out infinite;
+}
+
+/* Smooth zoom animation for backgrounds */
+@keyframes slowZoom {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.1) rotate(0.5deg);
+  }
+}
+
+/* Floating animation for content */
+@keyframes floatContent {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 /* Add professional accounting decorative elements */
@@ -268,9 +354,12 @@ onMounted(() => {
   font-size: 14px;
 }
 
+.trust-item span {
+  color: var(--whiteColor) !important;
+}
+
 .cert-logo {
-  width: 24px;
-  height: 24px;
+  height: 50px;
 }
 
 .trust-item i {

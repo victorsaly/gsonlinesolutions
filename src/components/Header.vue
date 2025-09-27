@@ -162,7 +162,7 @@ onMounted(() => {
 }
 
 .navbar.scrolled .logo-img {
-  filter: none;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(8%) saturate(1000%) hue-rotate(88deg) brightness(95%) contrast(90%);
 }
 
 
@@ -200,7 +200,7 @@ onMounted(() => {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--secondaryColor) !important;
+  color: var(--whiteColor) !important;
   background: rgba(185, 248, 177, 0.1);
 }
 
@@ -250,16 +250,12 @@ onMounted(() => {
 /* Mobile Responsive */
 @media (max-width: 991px) {
   .navbar {
-    padding: 15px 0;
-    background: var(--whiteColor);
-  }
-  
-  .navbar-brand {
-    color: var(--primaryColor);
+    background: var(--whiteColor) !important;
+    box-shadow: 0 2px 10px rgba(0, 37, 44, 0.1);
   }
   
   .logo-img {
-    filter: none;
+    filter: brightness(0) saturate(100%) invert(27%) sepia(8%) saturate(1000%) hue-rotate(88deg) brightness(95%) contrast(90%);
   }
   
   .navbar-collapse {

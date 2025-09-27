@@ -152,6 +152,22 @@ const benefits = [
     icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="var(--primary)">
       <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
     </svg>`
+  },
+  {
+    id: 5,
+    title: 'Xero & ICB Certified',
+    description: 'Fully qualified with Xero certification and ICB membership, ensuring professional standards and expertise.',
+    icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="var(--primary)">
+      <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+    </svg>`
+  },
+  {
+    id: 6,
+    title: 'Flexible & Scalable',
+    description: 'Tailored solutions that grow with your business, from startups to established companies.',
+    icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="var(--primary)">
+      <path d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M11,4H6V20H11L18,13V20H6V4Z"/>
+    </svg>`
   }
 ]
 
