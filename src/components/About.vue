@@ -61,14 +61,14 @@
           <div class="approach-visual slide-in-right">
             <div class="founder-profile">
               <div class="founder-image">
-                <img src="/photo_gosia.png" alt="Gosia Saly - Founder of GS Online Solutions" class="profile-photo" />
+                <img src="/GosiaProfile.jpg" alt="Gosia Saly - Founder of GS Online Solutions" class="profile-photo" />
                 <div class="founder-badge">
                   <span>Founder & Financial Expert</span>
                 </div>
               </div>
               <div class="founder-info">
                 <h4>Gosia Saly</h4>
-                <p class="founder-title">Chartered Accountant & Founder</p>
+                <p class="founder-title">Founder & Financial Expert</p>
                 <p class="founder-description">
                   With years of experience in financial management and a passion for helping businesses grow, 
                   Gosia founded GS Online Solutions to provide personalized, expert financial services.
@@ -93,14 +93,14 @@
                   <h5 class="text-gradient mb-6">Professional Certifications</h5>
                   <div class="certifications-grid">
                     <div class="certification-badge card card-minimal">
-                      <img src="/xero-logo.svg" alt="Xero Advisor Certified" class="cert-logo" />
+                      <img src="/xero-logo.png" alt="Xero Advisor Certified" class="cert-logo" />
                       <div class="cert-info">
                         <h6>Xero Advisor Certified</h6>
                         <p>Cloud accounting expertise</p>
                       </div>
                     </div>
                     <div class="certification-badge card card-minimal">
-                      <img src="/icb-logo.svg" alt="ICB Member" class="cert-logo" />
+                      <img src="/icb_logo.png" alt="ICB Member" class="cert-logo" />
                       <div class="cert-info">
                         <h6>ICB Member</h6>
                         <p>Institute of Certified Bookkeepers</p>
@@ -285,9 +285,9 @@ onUnmounted(() => {
 
 .approach-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  align-items: top;
 }
 
 .approach-text h3 {
@@ -544,7 +544,7 @@ onUnmounted(() => {
   .approach-content {
     grid-template-columns: 1fr;
     gap: 3rem;
-    text-align: center;
+    text-align: top;
   }
   
   .approach-text h3 {
