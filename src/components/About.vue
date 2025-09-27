@@ -2,9 +2,9 @@
   <section id="about" class="section section-alt">
     <div class="container">
       <div class="about-content">
-        <div class="about-text">
+        <div class="section-header">
           <h2 class="fade-in-up">Why Choose GS Online Solutions?</h2>
-          <p class="text-large fade-in-up-delay">
+          <p class="subtitle fade-in-up-delay">
             Founded by Gosia Saly in 2024, GS Online Solutions brings fresh energy 
             and modern expertise to business finance management. We believe in building 
             long-term partnerships with our clients through dedicated service and innovative solutions.
@@ -12,9 +12,9 @@
         </div>
         
         <div class="benefits-grid">
-          <div class="benefit-card slide-in-up" v-for="benefit in benefits" :key="benefit.id">
+          <div class="benefit-card card card-elevated slide-in-up" v-for="benefit in benefits" :key="benefit.id">
             <div class="benefit-icon" v-html="benefit.icon"></div>
-            <h4>{{ benefit.title }}</h4>
+            <h4 class="mb-4">{{ benefit.title }}</h4>
             <p>{{ benefit.description }}</p>
           </div>
         </div>
@@ -90,16 +90,16 @@
                 
                 <!-- Professional Certifications -->
                 <div class="certifications-section slide-in-left">
-                  <h5>Professional Certifications</h5>
+                  <h5 class="text-gradient mb-6">Professional Certifications</h5>
                   <div class="certifications-grid">
-                    <div class="certification-badge">
+                    <div class="certification-badge card card-minimal">
                       <img src="/xero-logo.svg" alt="Xero Advisor Certified" class="cert-logo" />
                       <div class="cert-info">
                         <h6>Xero Advisor Certified</h6>
                         <p>Cloud accounting expertise</p>
                       </div>
                     </div>
-                    <div class="certification-badge">
+                    <div class="certification-badge card card-minimal">
                       <img src="/icb-logo.svg" alt="ICB Member" class="cert-logo" />
                       <div class="cert-info">
                         <h6>ICB Member</h6>
@@ -412,18 +412,6 @@ onUnmounted(() => {
 /* Professional Certifications */
 .certifications-section {
   margin-top: 2rem;
-  padding: 1.5rem;
-  background: linear-gradient(135deg, rgba(82, 115, 108, 0.05), rgba(135, 115, 94, 0.05));
-  border-radius: 1rem;
-  border: 1px solid rgba(82, 115, 108, 0.1);
-}
-
-.certifications-section h5 {
-  color: var(--primary);
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-align: center;
 }
 
 .certifications-grid {
@@ -436,17 +424,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: var(--white);
-  padding: 1rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(82, 115, 108, 0.1);
-}
-
-.certification-badge:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 1rem !important;
 }
 
 .cert-logo {

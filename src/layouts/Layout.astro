@@ -1,34 +1,298 @@
 ---
 export interface Props {
-  title: string;
-  description?: string;
+	title: string;
+	description?: string;
 }
 
-const { title, description = "Professional accounting and finance services for businesses of all sizes. Expert team providing bookkeeping, tax preparation, financial consulting and more." } = Astro.props;
+const { title, description = "GS Online Solutions - Professional bookkeeping and accounting services for small businesses. Xero certified with expert financial management solutions." } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&family=Source+Serif+Pro:wght@300;400;600&display=swap" rel="stylesheet">
-  </head>
-  
-  <body>
-    <slot />
-    <!-- <script is:inline src="/js/main.js"></script> -->
-  </body>
+<!doctype html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description}>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="generator" content={Astro.generator} />
+		<meta name="author" content="GS Online Solutions">
+		<meta name="keywords" content="bookkeeping, accounting, xero, icb, financial services, small business">
+		
+		<!-- Disable caching in development -->
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:title" content={title}>
+		<meta property="og:description" content={description}>
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:title" content={title}>
+		<meta property="twitter:description" content={description}>
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		
+		<!-- RemixIcon -->
+		<link rel="stylesheet" href="/remixicon.css">
+		
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- Swiper CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+		
+		<title>{title}</title>
+	</head>
+	<body>
+		<!-- Preloader -->
+		<div id="preloader">
+			<div class="preloader-content">
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Main Content -->
+		<main>
+			<slot />
+		</main>
+
+		<!-- Bootstrap JS -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		
+		<!-- Swiper JS -->
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+		
+		<!-- Global Scripts -->
+		<script>
+			// Clear any existing service workers for development
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.getRegistrations().then(function(registrations) {
+					for (let registration of registrations) {
+						registration.unregister();
+						console.log('Service worker unregistered for development');
+					}
+				});
+			}
+
+			// Clear cache for development
+			if ('caches' in window) {
+				caches.keys().then(function(names) {
+					for (let name of names) {
+						caches.delete(name);
+						console.log('Cache cleared:', name);
+					}
+				});
+			}
+
+			// Preloader functionality
+			window.addEventListener('load', function() {
+				const preloader = document.getElementById('preloader');
+				if (preloader) {
+					preloader.style.opacity = '0';
+					setTimeout(() => {
+						preloader.style.display = 'none';
+					}, 500);
+				}
+			});
+
+			// Smooth scrolling for anchor links
+			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+				anchor.addEventListener('click', function (e) {
+					e.preventDefault();
+					const target = document.querySelector(this.getAttribute('href'));
+					if (target) {
+						target.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start'
+						});
+					}
+				});
+			});
+
+			// Intersection Observer for scroll animations
+			const observerOptions = {
+				threshold: 0.1,
+				rootMargin: '0px 0px -50px 0px'
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+					}
+				});
+			}, observerOptions);
+
+			// Observe all slide-in elements
+			document.addEventListener('DOMContentLoaded', () => {
+				const slideElements = document.querySelectorAll('.slide-in-element');
+				slideElements.forEach(element => {
+					observer.observe(element);
+				});
+			});
+
+			// Initialize Swiper for hero slider
+			document.addEventListener('DOMContentLoaded', () => {
+				const heroSwiper = new Swiper('.hero-slider', {
+					loop: true,
+					autoplay: {
+						delay: 6000,
+						disableOnInteraction: false,
+					},
+					effect: 'fade',
+					fadeEffect: {
+						crossFade: true
+					},
+					speed: 1000,
+					pagination: {
+						el: '.swiper-pagination',
+						clickable: true,
+					},
+					navigation: {
+						nextEl: '.swiper-button-next',
+						prevEl: '.swiper-button-prev',
+					},
+				});
+			});
+		</script>
+	</body>
 </html>
 
 <style is:global>
-  @import '../styles/global.css';
+	@import '../styles/global.css';
+	
+	/* Preloader Styles */
+	#preloader {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: var(--whiteColor);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 10000;
+		transition: opacity 0.5s ease;
+	}
+
+	.preloader-content {
+		text-align: center;
+	}
+
+	.spinner {
+		width: 40px;
+		height: 40px;
+		position: relative;
+	}
+
+	.double-bounce1, .double-bounce2 {
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background-color: var(--primaryColor);
+		opacity: 0.6;
+		position: absolute;
+		top: 0;
+		left: 0;
+		animation: sk-bounce 2.0s infinite ease-in-out;
+	}
+
+	.double-bounce2 {
+		animation-delay: -1.0s;
+	}
+
+	@keyframes sk-bounce {
+		0%, 100% {
+			transform: scale(0);
+		} 50% {
+			transform: scale(1);
+		}
+	}
+
+	/* Swiper Custom Styles */
+	.hero-slider {
+		height: 100vh;
+		width: 100%;
+	}
+
+	.hero-slider .swiper-slide {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		background-size: cover;
+		background-position: center;
+	}
+
+	.hero-slider .swiper-slide::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 37, 44, 0.6);
+		z-index: 1;
+	}
+
+	.hero-slider .slide-content {
+		position: relative;
+		z-index: 2;
+		text-align: center;
+		color: var(--whiteColor);
+		max-width: 800px;
+		padding: 0 20px;
+	}
+
+	.hero-slider .swiper-pagination {
+		bottom: 30px;
+	}
+
+	.hero-slider .swiper-pagination-bullet {
+		background: var(--whiteColor);
+		opacity: 0.5;
+		width: 12px;
+		height: 12px;
+	}
+
+	.hero-slider .swiper-pagination-bullet-active {
+		background: var(--secondaryColor);
+		opacity: 1;
+	}
+
+	.hero-slider .swiper-button-next,
+	.hero-slider .swiper-button-prev {
+		color: var(--whiteColor);
+		width: 50px;
+		height: 50px;
+		margin-top: -25px;
+	}
+
+	.hero-slider .swiper-button-next:hover,
+	.hero-slider .swiper-button-prev:hover {
+		color: var(--secondaryColor);
+	}
+
+	/* Responsive adjustments */
+	@media (max-width: 768px) {
+		.hero-slider {
+			height: 70vh;
+		}
+		
+		.hero-slider .swiper-button-next,
+		.hero-slider .swiper-button-prev {
+			display: none;
+		}
+	}
 </style>

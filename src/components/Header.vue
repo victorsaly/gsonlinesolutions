@@ -1,170 +1,305 @@
 <template>
-  <header class="header">
-    <div class="container">
-      <nav class="nav">
-        <div class="nav-brand">
-          <a href="/" class="brand-link">
-            <img src="/logo_gs.svg" alt="GS Online Solutions" class="logo" />
-          </a>
-        </div>
-        
-        <div class="nav-menu" :class="{ 'nav-menu-open': isMenuOpen }">
-          <a href="#services" class="nav-link" @click="closeMenu">Services</a>
-          <a href="/extended-services" class="nav-link" @click="closeMenu">Extended Services</a>
-          <a href="#about" class="nav-link" @click="closeMenu">About</a>
-          <a href="#contact" class="nav-link" @click="closeMenu">Contact</a>
-          <a href="#contact" class="btn btn-primary" @click="closeMenu">Get Started</a>
-        </div>
-        
+  <header class="header-area">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <!-- Brand Logo -->
+        <a class="navbar-brand" href="/">
+          <img src="/logo_gs.svg" alt="GS Online Solutions" class="logo-img">
+        </a>
+
+        <!-- Mobile Menu Toggle -->
         <button 
-          class="nav-toggle"
-          @click="toggleMenu"
-          :class="{ active: isMenuOpen }"
-          aria-label="Toggle menu"
+          class="navbar-toggler" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav" 
+          aria-expanded="false" 
+          aria-label="Toggle navigation"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
-      </nav>
-    </div>
+
+        <!-- Navigation Menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a 
+                class="nav-link dropdown-toggle" 
+                href="#services" 
+                id="servicesDropdown" 
+                role="button" 
+                data-bs-toggle="dropdown" 
+                aria-expanded="false"
+              >
+                Services
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                <li><a class="dropdown-item" href="#services">All Services</a></li>
+                <li><a class="dropdown-item" href="#bookkeeping">Bookkeeping</a></li>
+                <li><a class="dropdown-item" href="#tax-prep">Tax Preparation</a></li>
+                <li><a class="dropdown-item" href="#consulting">Financial Consulting</a></li>
+                <li><a class="dropdown-item" href="#payroll">Payroll Management</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#testimonials">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+          
+          <!-- CTA Button -->
+          <div class="navbar-cta ms-3">
+            <a href="#contact" class="btn btn-primary">
+              <i class="ri-phone-line"></i>
+              Get Quote
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
   </header>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted } from 'vue'
 
-const isMenuOpen = ref(false)
-
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value
-}
-
-const closeMenu = () => {
-  isMenuOpen.value = false
-}
-
-// Close menu when clicking outside
-const handleClickOutside = (event) => {
-  if (!event.target.closest('.nav-menu') && !event.target.closest('.nav-toggle')) {
-    isMenuOpen.value = false
+onMounted(() => {
+  // Handle navbar scroll effect
+  const navbar = document.querySelector('.navbar')
+  
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.add('scrolled')
+    } else {
+      navbar?.classList.remove('scrolled')
+    }
   }
-}
-
-if (typeof window !== 'undefined') {
-  document.addEventListener('click', handleClickOutside)
-}
+  
+  window.addEventListener('scroll', handleScroll)
+  
+  // Active link highlighting
+  const sections = document.querySelectorAll('section[id]')
+  const navLinks = document.querySelectorAll('.nav-link[href^="#"]')
+  
+  const highlightActiveLink = () => {
+    let current = ''
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100
+      const sectionHeight = section.offsetHeight
+      
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute('id')
+      }
+    })
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active')
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active')
+      }
+    })
+  }
+  
+  window.addEventListener('scroll', highlightActiveLink)
+  
+  // Cleanup on unmount
+  return () => {
+    window.removeEventListener('scroll', handleScroll)
+    window.removeEventListener('scroll', highlightActiveLink)
+  }
+})
 </script>
 
 <style scoped>
-.header {
-  background: var(--white);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+.header-area {
+  position: relative;
   z-index: 1000;
 }
 
-.nav {
+.navbar {
+  padding: 20px 0;
+  transition: var(--transition);
+  background: transparent;
+}
+
+.navbar.scrolled {
+  padding: 15px 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 37, 44, 0.1);
+}
+
+.navbar-brand {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1rem 0;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--whiteColor);
+  transition: var(--transition);
 }
 
-.nav-brand {
-  flex-shrink: 0;
+.navbar.scrolled .navbar-brand {
+  color: var(--primaryColor);
 }
 
-.brand-link {
-  display: flex;
+.logo-img {
+  width: 270px;
+  height: 80px;
+  filter: brightness(0) invert(1);
+  transition: var(--transition);
+}
+
+.navbar.scrolled .logo-img {
+  filter: none;
+}
+
+
+
+.navbar-toggler {
+  border: none;
+  padding: 4px 8px;
+  background: var(--secondaryColor);
+  border-radius: 6px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-nav {
   align-items: center;
-}
-
-.logo {
-  height: 45px;
-  width: auto;
-}
-
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
 }
 
 .nav-link {
+  color: var(--whiteColor) !important;
+  font-family: var(--primaryFont);
   font-weight: 500;
-  color: var(--gray-800);
-  transition: color 0.3s ease;
+  font-size: 16px;
+  margin: 0 8px;
+  padding: 8px 16px !important;
+  border-radius: 6px;
+  transition: var(--transition);
+  position: relative;
 }
 
-.nav-link:hover {
-  color: var(--primary);
+.navbar.scrolled .nav-link {
+  color: var(--primaryColor) !important;
 }
 
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  background: none;
-  border: none;
-  padding: 0.5rem;
-  cursor: pointer;
-  gap: 3px;
+.nav-link:hover,
+.nav-link.active {
+  color: var(--secondaryColor) !important;
+  background: rgba(185, 248, 177, 0.1);
 }
 
-.nav-toggle span {
-  width: 25px;
-  height: 3px;
-  background: var(--primary);
-  transition: all 0.3s ease;
-  transform-origin: center;
+.navbar.scrolled .nav-link:hover,
+.navbar.scrolled .nav-link.active {
+  color: var(--primaryColor) !important;
+  background: rgba(0, 37, 44, 0.05);
 }
 
-.nav-toggle.active span:first-child {
-  transform: rotate(45deg) translate(6px, 6px);
+.dropdown-menu {
+  background: var(--whiteColor);
+  border: 1px solid rgba(0, 37, 44, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 37, 44, 0.15);
+  padding: 12px 0;
+  margin-top: 8px;
+  min-width: 220px;
 }
 
-.nav-toggle.active span:nth-child(2) {
-  opacity: 0;
+.dropdown-item {
+  color: var(--titleColor);
+  font-family: var(--primaryFont);
+  font-weight: 500;
+  padding: 10px 20px;
+  transition: var(--transition);
 }
 
-.nav-toggle.active span:last-child {
-  transform: rotate(-45deg) translate(6px, -6px);
+.dropdown-item:hover {
+  color: var(--primaryColor);
+  background: rgba(185, 248, 177, 0.1);
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: flex;
+.navbar-cta .btn {
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-cta .btn i {
+  font-size: 16px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+  .navbar {
+    padding: 15px 0;
+    background: var(--whiteColor);
   }
   
-  .nav-menu {
-    position: fixed;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--white);
-    flex-direction: column;
-    padding: 2rem;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+  .navbar-brand {
+    color: var(--primaryColor);
   }
   
-  .nav-menu-open {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
+  .logo-img {
+    filter: none;
+  }
+  
+  .navbar-collapse {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 37, 44, 0.1);
   }
   
   .nav-link {
-    padding: 0.5rem 0;
+    color: var(--titleColor) !important;
+    padding: 12px 0 !important;
+    margin: 0;
+    border-radius: 0;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--primaryColor) !important;
+    background: transparent;
+  }
+  
+  .navbar-cta {
+    margin-top: 20px;
+    margin-left: 0 !important;
+  }
+  
+  .navbar-cta .btn {
     width: 100%;
-    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .brand-text {
+    font-size: 18px;
+  }
+  
+  .logo-img {
+    width: 50px;
+    height: 50px;
   }
 }
 </style>

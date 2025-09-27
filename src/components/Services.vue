@@ -1,29 +1,31 @@
 <template>
   <section id="services" class="section">
     <div class="container">
-      <div class="section-header text-center">
+      <div class="section-header">
         <h2 class="fade-in-up">Our Services</h2>
-        <p class="text-large text-muted fade-in-up-delay">
+        <p class="subtitle fade-in-up-delay">
           Comprehensive finance and accounting services tailored to your business needs
         </p>
       </div>
       
       <div class="services-intro fade-in-up-delay-2">
-        <div class="intro-content">
-          <h3>Tailored solutions that grow with your business</h3>
-          <p>
-            At GS Online Solutions, we understand that every business is unique. Founded with 
-            a commitment to personalized service, we work closely with each client to understand 
-            your specific needs and deliver solutions that drive growth and financial clarity.
-          </p>
+        <div class="card card-gradient">
+          <div class="intro-content text-center">
+            <h3 class="text-gradient">Tailored solutions that grow with your business</h3>
+            <p class="text-large">
+              At GS Online Solutions, we understand that every business is unique. Founded with 
+              a commitment to personalized service, we work closely with each client to understand 
+              your specific needs and deliver solutions that drive growth and financial clarity.
+            </p>
+          </div>
         </div>
       </div>
       
       <div class="services-grid">
-        <div class="service-card slide-in-up" v-for="service in services" :key="service.id">
+        <div class="service-card card card-elevated slide-in-up" v-for="service in services" :key="service.id">
           <div class="service-icon" v-html="service.icon"></div>
-          <h4>{{ service.title }}</h4>
-          <p>{{ service.description }}</p>
+          <h4 class="mb-4">{{ service.title }}</h4>
+          <p class="mb-6">{{ service.description }}</p>
           <ul class="service-features" v-if="service.features">
             <li v-for="feature in service.features" :key="feature">{{ feature }}</li>
           </ul>
