@@ -6,7 +6,7 @@
         <!-- Slide 1 - Bookkeeping -->
         <div class="swiper-slide hero-slide-1">
           <div class="hero-content slide-in-element slide-in-up">
-            <h1>Professional <span>Bookkeeping</span> Services</h1>
+            <h1>Professional <span>Bookkeeping Accounts</span> & Expert Advisory</h1>
             <p>Expert financial management and bookkeeping services tailored for small to medium businesses. Our Xero certified professionals ensure accuracy, compliance, and peace of mind while you focus on growing your business.</p>
             <div class="hero-buttons">
               <a href="#contact" class="btn btn-primary">
@@ -39,7 +39,7 @@
         <!-- Slide 2 - Tax Preparation -->
         <div class="swiper-slide hero-slide-2">
           <div class="hero-content slide-in-element slide-in-up">
-            <h1><span>Tax Preparation</span> Made Simple</h1>
+            <h1><span>Tax Preparation</span> & Compliance Solutions</h1>
             <p>Navigate tax season with confidence. Our expert team ensures accurate filing, maximum deductions, and compliance with all regulations for individuals and businesses.</p>
             <div class="hero-buttons">
               <a href="#contact" class="btn btn-primary">
@@ -72,7 +72,7 @@
         <!-- Slide 3 - Financial Consulting -->
         <div class="swiper-slide hero-slide-3">
           <div class="hero-content slide-in-element slide-in-up">
-            <h1>Financial <span>Consulting</span> for Growth</h1>
+            <h1>Strategic <span>Financial Advisory</span> & Growth Planning</h1>
             <p>Strategic financial guidance to help your business thrive. From cash flow management to growth planning, we provide insights that drive success.</p>
             <div class="hero-buttons">
               <a href="#contact" class="btn btn-primary">
@@ -392,7 +392,14 @@ onMounted(() => {
 .hero p {
   font-size: 1.25rem;
   margin-bottom: 40px;
-  opacity: 0.9;
+  opacity: 1;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background: rgba(0, 37, 44, 0.2);
+  padding: 12px 20px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero-buttons {

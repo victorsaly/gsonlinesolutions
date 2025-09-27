@@ -4,7 +4,7 @@
 :root {
   /* Exrox Design System Colors */
   --primaryColor: #00252C;
-  --secondaryColor: #B9F8B1;
+  --secondaryColor: #8b9b89;
   --optionalColor: #91D089;
   --titleColor: #393737;
   --paraColor: #888787;
@@ -104,14 +104,14 @@ body {
 }
 
 .btn-primary {
-  background: var(--primaryColor);
+  background: #6c8f8a;
   color: var(--whiteColor);
 }
 
 .btn-primary:hover {
-  background: #003d47;
+  background: #5a7a74;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 37, 44, 0.3);
+  box-shadow: 0 8px 25px rgba(108, 143, 138, 0.3);
 }
 
 .btn-secondary {
@@ -126,15 +126,17 @@ body {
 }
 
 .btn-outline {
-  background: transparent;
-  color: var(--primaryColor);
-  border: 2px solid var(--primaryColor);
+  background: rgba(108, 143, 138, 0.15);
+  color: var(--whiteColor);
+  border: 2px solid #6c8f8a;
 }
 
 .btn-outline:hover {
-  background: var(--primaryColor);
+  background: #6c8f8a;
   color: var(--whiteColor);
+  border-color: #6c8f8a;
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(108, 143, 138, 0.4);
 }
 
 /* Card System - Exrox Modern Design */
