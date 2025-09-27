@@ -155,7 +155,7 @@ onMounted(() => {
 }
 
 .logo-img {
-  width: 270px;
+  width: 180px;
   height: 80px;
   filter: brightness(0) invert(1);
   transition: var(--transition);

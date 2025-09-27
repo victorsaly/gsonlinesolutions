@@ -178,7 +178,7 @@ onMounted(() => {
   color: var(--whiteColor);
   position: relative;
 }
-ß
+
 .hero-slide-1 {
   background: linear-gradient(135deg, rgba(0, 37, 44, 0.55), rgba(57, 55, 55, 0.35)), url('/hero/hero_slide_1.jpg');
   background-size: cover;
