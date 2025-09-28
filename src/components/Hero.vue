@@ -144,6 +144,25 @@ const initializeSwiperWhenReady = () => {
         loop: true,
         allowTouchMove: true,
         
+        // Better mobile touch handling
+        touchRatio: 1,
+        touchAngle: 45,
+        simulateTouch: true,
+        
+        // Responsive breakpoints for better mobile experience
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            speed: 600,
+          },
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            speed: 800,
+          }
+        },
+        
         // Keep navigation buttons for additional control
         navigation: {
           nextEl: '.swiper-button-next',
@@ -293,8 +312,11 @@ onBeforeUnmount(() => {
 .hero-slide {
   background-size: cover !important;
   background-position: center !important;
+  background-attachment: scroll; /* Better for mobile performance */
   min-height: 100vh;
   position: relative;
+  /* Ensure touch events work properly on mobile */
+  touch-action: pan-y;
 }
 
 /* Individual slides with the same background image and overlays */
@@ -647,13 +669,207 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 768px) {
+  /* Mobile Hero Adjustments */
+  .hero {
+    height: 100vh;
+    min-height: 600px;
+  }
+  
+  .swiper-slide {
+    padding: 40px 15px;
+    min-height: 100vh;
+  }
+  
+  /* Mobile-optimized background positioning */
+  .hero-slide:nth-child(1),
+  .hero-slide:nth-child(2), 
+  .hero-slide:nth-child(3) {
+    background-position: center center;
+    background-attachment: scroll;
+    /* Ensure background covers properly on mobile */
+    background-size: cover;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+    padding: 0 10px;
+    text-align: center;
+    /* Reduce animation on mobile for better performance */
+    animation: none;
+  }
+  
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    padding: 10px 15px;
+    line-height: 1.5;
   }
   
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+  }
+  
+  .hero-buttons .btn {
+    padding: 14px 28px;
+    font-size: 15px;
+    min-width: 200px;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  /* Mobile Trust Indicators */
+  .trust-indicators {
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .trust-item {
+    font-size: 13px;
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+  }
+  
+  .cert-logo {
+    height: 35px;
+  }
+  
+  /* Mobile Stats */
+  .hero-stats {
+    gap: 25px;
+    margin-top: 25px;
+    justify-content: center;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+  }
+  
+  /* Mobile Features */
+  .hero-features {
+    gap: 20px;
+    margin-top: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .feature-item {
+    font-size: 13px;
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+  }
+  
+  .feature-item i {
+    font-size: 16px;
+  }
+  
+  /* Mobile Navigation */
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+  }
+  
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 14px;
+  }
+  
+  .swiper-button-next {
+    right: 10px;
+  }
+  
+  .swiper-button-prev {
+    left: 10px;
+  }
+  
+  /* Mobile Scroll Indicator */
+  .scroll-indicator {
+    bottom: 20px;
+  }
+  
+  .scroll-indicator span {
+    font-size: 11px;
+  }
+  
+  .scroll-mouse {
+    width: 20px;
+    height: 30px;
+  }
+  
+  .scroll-wheel {
+    height: 4px;
+    top: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small mobile adjustments */
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+  
+  .hero-buttons .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+    min-width: 180px;
+  }
+  
+  .swiper-slide {
+    padding: 30px 10px;
+  }
+  
+  /* Hide some elements on very small screens */
+  .trust-indicators {
+    margin-top: 20px;
+  }
+  
+  .hero-stats {
+    gap: 15px;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  /* Smaller navigation buttons */
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 35px;
+    height: 35px;
+    margin-top: -17px;
+  }
+  
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 12px;
+  }
+  
+  /* Hide decorative elements on very small screens for better performance */
+  .hero::before {
+    display: none;
   }
 }
 </style>
