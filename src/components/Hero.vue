@@ -1,10 +1,10 @@
 <template>
   <section id="home" class="hero">
     <!-- Hero Slider -->
-    <div class="swiper hero-slider">
+    <div class="swiper hero-slider-one">
       <div class="swiper-wrapper">
         <!-- Slide 1 - Bookkeeping -->
-        <div class="swiper-slide hero-slide-1">
+        <div class="swiper-slide hero-slide">
           <div class="hero-content slide-in-element slide-in-up">
             <h1>Professional <span>Bookkeeping Accounts</span> & Expert Advisory</h1>
             <p>Expert financial management and bookkeeping services tailored for small to medium businesses. Our Xero certified professionals ensure accuracy, compliance, and peace of mind while you focus on growing your business.</p>
@@ -37,7 +37,7 @@
         </div>
 
         <!-- Slide 2 - Tax Preparation -->
-        <div class="swiper-slide hero-slide-2">
+        <div class="swiper-slide hero-slide">
           <div class="hero-content slide-in-element slide-in-up">
             <h1><span>Tax Preparation</span> & Compliance Solutions</h1>
             <p>Navigate tax season with confidence. Our expert team ensures accurate filing, maximum deductions, and compliance with all regulations for individuals and businesses.</p>
@@ -70,7 +70,7 @@
         </div>
 
         <!-- Slide 3 - Financial Consulting -->
-        <div class="swiper-slide hero-slide-3">
+        <div class="swiper-slide hero-slide">
           <div class="hero-content slide-in-element slide-in-up">
             <h1>Strategic <span>Financial Advisory</span> & Growth Planning</h1>
             <p>Strategic financial guidance to help your business thrive. From cash flow management to growth planning, we provide insights that drive success.</p>
@@ -102,13 +102,10 @@
           </div>
         </div>
       </div>
-
-      <!-- Navigation -->
+      
+      <!-- Navigation Arrows (keep for additional navigation) -->
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-      
-      <!-- Pagination -->
-      <div class="swiper-pagination"></div>
     </div>
 
     <!-- Scroll Indicator -->
@@ -125,56 +122,139 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, nextTick, onBeforeUnmount } from 'vue'
 
-onMounted(() => {
-  // Initialize Swiper when component mounts
-  setTimeout(() => {
-    if (window.Swiper) {
-      const heroSwiper = new window.Swiper('.hero-slider', {
-        loop: true,
+// Store swiper instance for cleanup
+let heroSwiper = null;
+
+// Alternative initialization for when CDN loads
+const initializeSwiperWhenReady = () => {
+  if (typeof window !== 'undefined' && window.Swiper && document.querySelector('.hero-slider-one')) {
+    console.log('✅ Swiper found! Initializing...');
+    
+    try {
+      heroSwiper = new window.Swiper('.hero-slider-one', {
+        spaceBetween: 0,
+        speed: 800,
+        effect: "slide", // Changed from fade to slide
         autoplay: {
-          delay: 8000,
+          delay: 8000, // 8 seconds per slide
           disableOnInteraction: false,
         },
-        effect: 'fade',
-        fadeEffect: {
-          crossFade: true
-        },
-        speed: 2000,
+        loop: true,
         allowTouchMove: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
+        
+        // Keep navigation buttons for additional control
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
-        // Add smooth parallax effect
+        
+        // Event callbacks
         on: {
+          slideChange: function () {
+            console.log('🔄 Slide changed to:', this.activeIndex + 1);
+          },
+          init: function () {
+            console.log('🎉 Swiper initialized successfully!');
+          },
           slideChangeTransitionStart: function () {
-            // Add zoom out effect to current slide
-            const activeSlide = this.slides[this.activeIndex];
-            if (activeSlide) {
-              activeSlide.style.transform = 'scale(1.05)';
-            }
+            // Simple transition without scaling
+            console.log('Slide transition started');
           },
           slideChangeTransitionEnd: function () {
-            // Reset all slides
-            this.slides.forEach(slide => {
-              slide.style.transform = 'scale(1)';
-            });
-            // Add zoom in effect to new active slide
-            const activeSlide = this.slides[this.activeIndex];
-            if (activeSlide) {
-              activeSlide.style.transform = 'scale(1.02)';
-            }
+            // Transition completed
+            console.log('Slide transition completed');
           }
         }
-      })
+      });
+
+      // Store reference for debugging
+      window.heroSwiper = heroSwiper;
+      console.log('🚀 Hero slider is ready!');
+      
+      return true;
+    } catch (error) {
+      console.error('❌ Error initializing Swiper:', error);
+      return false;
     }
-  }, 100)
+  }
+  return false;
+};
+
+// Check if we can initialize immediately
+const quickInitCheck = () => {
+  if (window.swiperLoaded && window.Swiper) {
+    console.log('🚀 Quick init: Swiper already loaded!');
+    return initializeSwiperWhenReady();
+  }
+  return false;
+};
+
+onMounted(() => {
+  // More robust initialization with better error handling and timeout
+  let attempts = 0;
+  const maxAttempts = 50; // Try for up to 10 seconds
+  
+  const initializeSwiper = () => {
+    attempts++;
+    
+    if (initializeSwiperWhenReady()) {
+      return; // Success!
+    }
+    
+    if (attempts < maxAttempts) {
+      console.log(`⏳ Swiper not available yet, retrying... (Attempt ${attempts}/${maxAttempts})`);
+      setTimeout(initializeSwiper, 200);
+    } else {
+      console.error('❌ Failed to load Swiper library after', maxAttempts, 'attempts');
+      console.log('💡 Checking if Swiper CDN is accessible...');
+      
+      // Try to check if the script tag exists
+      const swiperScript = document.querySelector('script[src*="swiper"]');
+      if (swiperScript) {
+        console.log('📦 Swiper script tag found:', swiperScript.src);
+      } else {
+        console.log('❌ No Swiper script tag found in DOM');
+      }
+      
+      // Fallback: try to load Swiper manually
+      if (!window.Swiper) {
+        console.log('🔄 Attempting manual Swiper load...');
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+        script.onload = () => {
+          console.log('📦 Swiper manually loaded, attempting initialization...');
+          setTimeout(() => initializeSwiperWhenReady(), 100);
+        };
+        script.onerror = () => {
+          console.error('❌ Failed to manually load Swiper from CDN');
+        };
+        document.head.appendChild(script);
+      }
+    }
+  };
+
+  // Wait for DOM to be ready and start initialization
+  nextTick(() => {
+    console.log('🔧 Starting Swiper initialization...');
+    
+    // Try quick initialization first
+    if (quickInitCheck()) {
+      return;
+    }
+    
+    // Otherwise, start the retry loop
+    setTimeout(initializeSwiper, 100);
+  });
+})
+
+// Cleanup on component unmount
+onBeforeUnmount(() => {
+  if (heroSwiper) {
+    heroSwiper.destroy(true, true);
+    console.log('🧹 Swiper instance destroyed');
+  }
 })
 </script>
 
@@ -183,11 +263,17 @@ onMounted(() => {
   height: 100vh;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, #00252c 0%, #1a4b56 50%, #2d6a77 100%);
 }
 
-.hero-slider {
+.hero-slider-one {
   height: 100%;
   width: 100%;
+  background: linear-gradient(135deg, #00252c 0%, #1a4b56 50%, #2d6a77 100%);
+}
+
+.swiper-wrapper {
+  background: linear-gradient(135deg, #00252c 0%, #1a4b56 50%, #2d6a77 100%);
 }
 
 .swiper-slide {
@@ -197,70 +283,54 @@ onMounted(() => {
   justify-content: center;
   background-size: cover;
   background-position: center;
-  color: var(--whiteColor);
+  color: #ffffff;
   position: relative;
   overflow: hidden;
+  padding: 60px 20px;
 }
 
-.hero-slide-1 {
-  background: linear-gradient(135deg, rgba(0, 37, 44, 0.65), rgba(57, 55, 55, 0.55)), url('/hero/hero_slide_1.jpg');
+/* Hero Slide Base Styling - Ensure all slides have background */
+.hero-slide {
+  background-size: cover !important;
+  background-position: center !important;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Individual slides with the same background image and overlays */
+.hero-slide:nth-child(1) {
+  background: 
+    linear-gradient(135deg, rgba(0, 37, 44, 0.8), rgba(26, 75, 86, 0.7)), 
+    url('/hero/hero_slide_1.jpg');
   background-size: cover;
   background-position: center;
 }
 
-.hero-slide-1::before {
-  content: '';
-  position: absolute;
-  top: -10%;
-  left: -10%;
-  width: 120%;
-  height: 120%;
-  background: linear-gradient(135deg, rgba(0, 37, 44, 0.65), rgba(57, 55, 55, 0.55)), url('/hero/hero_slide_1.jpg');
-  background-size: cover;
-  background-position: center;
-  animation: slowZoom 12s ease-in-out infinite alternate;
-  z-index: -1;
-}
-
-.hero-slide-2 {
-  background: linear-gradient(135deg, rgba(0, 37, 44, 0.75), rgba(57, 55, 55, 0.65)), url('/services/service-2.jpg');
+.hero-slide:nth-child(2) {
+  background: 
+    linear-gradient(135deg, rgba(0, 37, 44, 0.8), rgba(26, 75, 86, 0.7)), 
+    url('/hero/hero_slide_1.jpg');
   background-size: cover;
   background-position: center;
 }
 
-.hero-slide-2::before {
-  content: '';
-  position: absolute;
-  top: -10%;
-  left: -10%;
-  width: 120%;
-  height: 120%;
-  background: linear-gradient(135deg, rgba(0, 37, 44, 0.75), rgba(57, 55, 55, 0.65)), url('/services/service-2.jpg');
-  background-size: cover;
-  background-position: center;
-  animation: slowZoom 15s ease-in-out infinite alternate;
-  z-index: -1;
-}
-
-.hero-slide-3 {
-  background: linear-gradient(135deg, rgba(0, 37, 44, 0.75), rgba(57, 55, 55, 0.65)), url('/services/service-3.jpg');
+.hero-slide:nth-child(3) {
+  background: 
+    linear-gradient(135deg, rgba(0, 37, 44, 0.8), rgba(26, 75, 86, 0.7)), 
+    url('/hero/hero_slide_1.jpg');
   background-size: cover;
   background-position: center;
 }
 
-.hero-slide-3::before {
-  content: '';
-  position: absolute;
-  top: -10%;
-  left: -10%;
-  width: 120%;
-  height: 120%;
-  background: linear-gradient(135deg, rgba(0, 37, 44, 0.75), rgba(57, 55, 55, 0.65)), url('/services/service-3.jpg');
-  background-size: cover;
-  background-position: center;
-  animation: slowZoom 18s ease-in-out infinite alternate;
-  z-index: -1;
+/* Fallback for missing images */
+.hero-slide:nth-child(1),
+.hero-slide:nth-child(2),
+.hero-slide:nth-child(3) {
+  /* Fallback solid background if images don't load */
+  background-color: #1a4b56;
 }
+
+/* Remove pseudo-element animations to prevent size issues during transitions */
 
 
 
@@ -269,8 +339,12 @@ onMounted(() => {
   max-width: 800px;
   padding: 0 20px;
   position: relative;
-  z-index: 10;
-  animation: floatContent 8s ease-in-out infinite;
+  z-index: 100 !important;
+  animation: floatContent 4s ease-in-out infinite;
+  color: #ffffff !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Smooth zoom animation for backgrounds */
@@ -315,26 +389,28 @@ onMounted(() => {
 /* Swiper Navigation Styling */
 .swiper-button-next,
 .swiper-button-prev {
-  color: var(--whiteColor);
+  color: #ffffff;
   background: rgba(255, 255, 255, 0.2);
   width: 50px;
   height: 50px;
   border-radius: 50%;
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 .swiper-button-next:after,
 .swiper-button-prev:after {
   font-size: 18px;
-}
-
-.swiper-pagination-bullet {
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 1;
-}
-
-.swiper-pagination-bullet-active {
-  background: var(--secondaryColor);
+  font-weight: bold;
 }
 
 /* Trust indicators styling */
@@ -350,12 +426,12 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--whiteColor);
+  color: #ffffff;
   font-size: 14px;
 }
 
 .trust-item span {
-  color: var(--whiteColor) !important;
+  color: #ffffff !important;
 }
 
 .cert-logo {
@@ -364,7 +440,7 @@ onMounted(() => {
 
 .trust-item i {
   font-size: 20px;
-  color: var(--secondaryColor);
+  color: #B9F8B1;
 }
 
 /* Scroll Indicator Styling */
@@ -374,7 +450,7 @@ onMounted(() => {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  color: var(--whiteColor);
+  color: #ffffff;
   z-index: 10;
   animation: bounce 2s infinite;
 }
@@ -386,7 +462,7 @@ onMounted(() => {
 }
 
 .scroll-link:hover {
-  color: var(--secondaryColor);
+  color: #B9F8B1;
 }
 
 .scroll-mouse {
@@ -401,7 +477,7 @@ onMounted(() => {
 .scroll-wheel {
   width: 2px;
   height: 6px;
-  background: var(--whiteColor);
+  background: #ffffff;
   border-radius: 2px;
   position: absolute;
   top: 6px;
@@ -445,6 +521,35 @@ onMounted(() => {
   }
 }
 
+/* Hero Stats Styling */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+  color: #ffffff;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #B9F8B1;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
 /* Hero Features Styling */
 .hero-features {
   display: flex;
@@ -458,24 +563,25 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--whiteColor);
+  color: #ffffff;
   font-size: 14px;
   opacity: 0.9;
 }
 
 .feature-item i {
   font-size: 18px;
-  color: var(--secondaryColor);
+  color: #B9F8B1;
 }
 
 .hero h1 {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 24px;
+  color: #ffffff;
 }
 
 .hero span {
-  color: var(--secondaryColor);
+  color: #B9F8B1;
 }
 
 .hero p {
@@ -496,6 +602,9 @@ onMounted(() => {
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 30px;
+  z-index: 101;
+  position: relative;
 }
 
 .hero-buttons .btn {
@@ -505,6 +614,36 @@ onMounted(() => {
   border-radius: 8px;
   text-decoration: none;
   min-width: 180px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: #B9F8B1;
+  color: #00252c;
+  border-color: #B9F8B1;
+}
+
+.btn-primary:hover {
+  background: #a8e7a0;
+  border-color: #a8e7a0;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.btn-outline:hover {
+  background: #ffffff;
+  color: #00252c;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
