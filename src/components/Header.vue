@@ -296,10 +296,13 @@ onMounted(() => {
   .navbar {
     background: var(--whiteColor) !important;
     box-shadow: 0 2px 10px rgba(0, 37, 44, 0.1);
+    padding: 15px 0;
   }
   
   .logo-img {
     filter: brightness(0) saturate(100%) invert(27%) sepia(8%) saturate(1000%) hue-rotate(88deg) brightness(95%) contrast(90%);
+    width: 150px;
+    height: 70px;
   }
   
   .navbar-collapse {
@@ -333,13 +336,42 @@ onMounted(() => {
 }
 
 @media (max-width: 576px) {
+  .navbar {
+    padding: 12px 0;
+  }
+  
+  .navbar.scrolled {
+    padding: 10px 0;
+  }
+  
   .brand-text {
     font-size: 18px;
   }
   
   .logo-img {
-    width: 50px;
-    height: 50px;
+    width: 120px;
+    height: 60px;
+  }
+  
+  .navbar-toggler {
+    padding: 10px 15px !important;
+    border: 2px solid var(--primaryColor) !important;
+    border-radius: 8px !important;
+    background: rgba(185, 248, 177, 0.1) !important;
+    margin-left: 10px;
+  }
+  
+  .navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(185, 248, 177, 0.25) !important;
+  }
+  
+  .dropdown-menu {
+    font-size: 16px;
+  }
+  
+  .dropdown-item {
+    padding: 15px 20px;
+    font-size: 16px;
   }
 }
 </style>

@@ -728,21 +728,28 @@ onBeforeUnmount(() => {
   
   /* Mobile Trust Indicators */
   .trust-indicators {
-    gap: 20px;
+    gap: 15px;
     margin-top: 30px;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 0 10px;
   }
   
   .trust-item {
-    font-size: 13px;
+    font-size: 12px;
     flex-direction: column;
     text-align: center;
-    gap: 5px;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 8px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    min-width: 90px;
   }
   
   .cert-logo {
-    height: 35px;
+    height: 40px;
+    filter: brightness(1.1);
   }
   
   /* Mobile Stats */
@@ -823,18 +830,27 @@ onBeforeUnmount(() => {
 @media (max-width: 480px) {
   /* Extra small mobile adjustments */
   .hero h1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
+    line-height: 1.3;
+    margin-bottom: 20px;
   }
   
   .hero p {
-    font-size: 1rem;
-    padding: 8px 12px;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+  }
+  
+  .hero-buttons {
+    margin-bottom: 20px;
   }
   
   .hero-buttons .btn {
-    padding: 12px 24px;
-    font-size: 14px;
-    min-width: 180px;
+    padding: 14px 28px;
+    font-size: 15px;
+    min-width: 200px;
+    margin: 5px;
   }
   
   .swiper-slide {
@@ -843,7 +859,20 @@ onBeforeUnmount(() => {
   
   /* Hide some elements on very small screens */
   .trust-indicators {
-    margin-top: 20px;
+    margin-top: 25px;
+    gap: 12px;
+  }
+  
+  .trust-item {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 10px 6px;
+    border-radius: 6px;
+    min-width: 85px;
+    font-size: 11px;
+  }
+  
+  .cert-logo {
+    height: 35px;
   }
   
   .hero-stats {
