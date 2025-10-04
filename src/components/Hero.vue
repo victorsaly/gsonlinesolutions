@@ -6,8 +6,8 @@
         <!-- Slide 1 - Bookkeeping -->
         <div class="swiper-slide hero-slide">
           <div class="hero-content slide-in-element slide-in-up">
-            <h1>Professional <span>Bookkeeping Accounts</span> & Expert Advisory</h1>
-            <p>Expert financial management and bookkeeping services tailored for small to medium businesses. Our Xero certified professionals ensure accuracy, compliance, and peace of mind while you focus on growing your business.</p>
+            <h1>Transform Your <span>Business Finances</span> with Expert Bookkeeping</h1>
+            <p>Stop worrying about numbers and start growing your business. Our Xero-certified professionals deliver accurate, compliant financial management that saves you time and money while providing the insights you need to make confident decisions.</p>
             <div class="hero-buttons">
               <a href="#contact" class="btn btn-primary">
                 <i class="ri-phone-line"></i>
@@ -15,22 +15,22 @@
               </a>
               <a href="#services" class="btn btn-outline">
                 <i class="ri-service-line"></i>
-                Our Services
+                View All Services
               </a>
             </div>
             <!-- Trust Indicators -->
             <div class="trust-indicators">
               <div class="trust-item">
                 <img src="/xero-logo.png" alt="Xero Certified" class="cert-logo">
-                <span>Xero Certified</span>
+                <span>Xero Certified Partner</span>
               </div>
               <div class="trust-item">
                 <img src="/icb_logo.png" alt="ICB Member" class="cert-logo">
-                <span>ICB Member</span>
+                <span>ICB Qualified</span>
               </div>
               <div class="trust-item">
                 <i class="ri-shield-check-line"></i>
-                <span>Fully Insured</span>
+                <span>Fully Insured & Bonded</span>
               </div>
             </div>
           </div>
@@ -39,64 +39,64 @@
         <!-- Slide 2 - Tax Preparation -->
         <div class="swiper-slide hero-slide">
           <div class="hero-content slide-in-element slide-in-up">
-            <h1><span>Tax Preparation</span> & Compliance Solutions</h1>
-            <p>Navigate tax season with confidence. Our expert team ensures accurate filing, maximum deductions, and compliance with all regulations for individuals and businesses.</p>
+            <h1>Maximize Your <span>Tax Savings</span> with Expert Planning</h1>
+            <p>Don't leave money on the table. Our tax experts ensure you claim every deduction while staying fully compliant. From corporation tax to VAT returns, we handle the complexity so you can focus on what matters most - your business success.</p>
             <div class="hero-buttons">
               <a href="#contact" class="btn btn-primary">
                 <i class="ri-calculator-line"></i>
-                Start Tax Planning
+                Book Tax Review
               </a>
-              <a href="#about" class="btn btn-outline">
-                <i class="ri-team-line"></i>
-                Meet Our Team
+              <a href="/services/tax-preparation" class="btn btn-outline">
+                <i class="ri-file-list-3-line"></i>
+                Tax Services
               </a>
             </div>
             <!-- Stats -->
             <div class="hero-stats">
               <div class="stat-item">
-                <span class="stat-number">500+</span>
-                <span class="stat-label">Happy Clients</span>
+                <span class="stat-number">£50K+</span>
+                <span class="stat-label">Average Annual Savings</span>
               </div>
               <div class="stat-item">
-                <span class="stat-number">10+</span>
+                <span class="stat-number">15+</span>
                 <span class="stat-label">Years Experience</span>
               </div>
               <div class="stat-item">
-                <span class="stat-number">99%</span>
+                <span class="stat-number">99.9%</span>
                 <span class="stat-label">Accuracy Rate</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Slide 3 - Financial Consulting -->
+        <!-- Slide 3 - Financial Advisory -->
         <div class="swiper-slide hero-slide">
           <div class="hero-content slide-in-element slide-in-up">
-            <h1>Strategic <span>Financial Advisory</span> & Growth Planning</h1>
-            <p>Strategic financial guidance to help your business thrive. From cash flow management to growth planning, we provide insights that drive success.</p>
+            <h1>Scale Your Business with <span>Strategic Financial Leadership</span></h1>
+            <p>Get C-level financial expertise without the C-level cost. Our fractional CFO services provide strategic insights, cash flow optimization, and growth planning that transforms good businesses into great ones.</p>
             <div class="hero-buttons">
               <a href="#contact" class="btn btn-primary">
                 <i class="ri-line-chart-line"></i>
-                Schedule Strategy Call
+                Schedule Strategy Session
               </a>
-              <a href="#testimonials" class="btn btn-outline">
-                <i class="ri-customer-service-2-line"></i>
-                Success Stories
+              <a href="/services/financial-controller" class="btn btn-outline">
+                <i class="ri-presentation-line"></i>
+                Learn More
               </a>
             </div>
             <!-- Features -->
             <div class="hero-features">
               <div class="feature-item">
-                <i class="ri-calculator-line"></i>
-                <span>Accurate Calculations</span>
+                <i class="ri-funds-line"></i>
+                <span>Cash Flow Management</span>
               </div>
               <div class="feature-item">
-                <i class="ri-file-shield-line"></i>
-                <span>Tax Compliance</span>
+                <i class="ri-line-chart-line"></i>
+                <span>Financial Planning</span>
               </div>
               <div class="feature-item">
-                <i class="ri-award-line"></i>
-                <span>Certified Experts</span>
+                <i class="ri-trophy-line"></i>
+                <span>Growth Strategy</span>
               </div>
             </div>
           </div>

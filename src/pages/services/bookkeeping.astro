@@ -1,0 +1,671 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.vue';
+import Footer from '../../components/Footer.vue';
+---
+
+<Layout title="Professional Bookkeeping Services - GS Online Solutions">
+	<Header client:load />
+	<main>
+		<!-- Service Hero Section -->
+		<section class="service-hero">
+			<div class="container">
+				<div class="service-hero-content">
+					<div class="breadcrumb">
+						<a href="/">Home</a> > <a href="/#services">Services</a> > <span>Bookkeeping</span>
+					</div>
+					<h1>Professional <span class="text-gradient">Bookkeeping Services</span></h1>
+					<p class="hero-description">
+						Keep your financial records accurate, up-to-date, and compliant with our comprehensive bookkeeping solutions. 
+						Focus on growing your business while we handle the numbers with precision and expertise.
+					</p>
+					<div class="hero-stats">
+						<div class="stat">
+							<span class="stat-number">500+</span>
+							<span class="stat-label">Businesses Served</span>
+						</div>
+						<div class="stat">
+							<span class="stat-number">99.9%</span>
+							<span class="stat-label">Accuracy Rate</span>
+						</div>
+						<div class="stat">
+							<span class="stat-number">24-48h</span>
+							<span class="stat-label">Turnaround Time</span>
+						</div>
+					</div>
+					<div class="hero-buttons">
+						<a href="#contact" class="btn btn-primary btn-large">
+							<i class="ri-phone-line"></i>
+							Get Free Consultation
+						</a>
+						<a href="#features" class="btn btn-outline btn-large">
+							<i class="ri-arrow-down-line"></i>
+							Learn More
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- What's Included Section -->
+		<section id="features" class="section">
+			<div class="container">
+				<div class="section-header text-center">
+					<h2>Complete Bookkeeping Solutions</h2>
+					<p>Everything you need to keep your finances organized and compliant</p>
+				</div>
+				<div class="features-grid">
+					<div class="feature-card">
+						<div class="feature-icon">
+							<i class="ri-exchange-line"></i>
+						</div>
+						<h3>Daily Transaction Processing</h3>
+						<p>All your income and expenses recorded accurately and categorized properly for clear financial visibility.</p>
+						<ul>
+							<li>Sales invoice processing</li>
+							<li>Purchase invoice management</li>
+							<li>Expense categorization</li>
+							<li>Multi-currency handling</li>
+						</ul>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">
+							<i class="ri-bank-line"></i>
+						</div>
+						<h3>Bank Reconciliation</h3>
+						<p>Monthly bank reconciliations ensure your books match your actual bank balances with complete accuracy.</p>
+						<ul>
+							<li>Daily bank feed monitoring</li>
+							<li>Automated matching</li>
+							<li>Discrepancy identification</li>
+							<li>Multi-account management</li>
+						</ul>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">
+							<i class="ri-file-list-3-line"></i>
+						</div>
+						<h3>Financial Statements</h3>
+						<p>Monthly profit & loss statements, balance sheets, and cash flow reports delivered on time.</p>
+						<ul>
+							<li>Monthly P&L statements</li>
+							<li>Balance sheet preparation</li>
+							<li>Cash flow analysis</li>
+							<li>Custom reporting</li>
+						</ul>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">
+							<i class="ri-arrow-up-down-line"></i>
+						</div>
+						<h3>Accounts Management</h3>
+						<p>Complete management of your accounts payable and receivable for better cash flow control.</p>
+						<ul>
+							<li>Supplier payment tracking</li>
+							<li>Customer invoice management</li>
+							<li>Aging reports</li>
+							<li>Payment reminders</li>
+						</ul>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">
+							<i class="ri-shield-check-line"></i>
+						</div>
+						<h3>Compliance & Accuracy</h3>
+						<p>Stay compliant with all regulations while maintaining the highest standards of accuracy.</p>
+						<ul>
+							<li>HMRC compliance</li>
+							<li>VAT preparation support</li>
+							<li>Audit trail maintenance</li>
+							<li>Document management</li>
+						</ul>
+					</div>
+					<div class="feature-card">
+						<div class="feature-icon">
+							<i class="ri-team-line"></i>
+						</div>
+						<h3>Dedicated Support</h3>
+						<p>Direct access to your qualified bookkeeper with regular check-ins and unlimited support.</p>
+						<ul>
+							<li>Dedicated account manager</li>
+							<li>Monthly business reviews</li>
+							<li>Phone & email support</li>
+							<li>Training & guidance</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Technology Section -->
+		<section class="section bg-light">
+			<div class="container">
+				<div class="section-header text-center">
+					<h2>Powered by <span class="text-gradient">Leading Technology</span></h2>
+					<p>We use industry-leading software to ensure accuracy, efficiency, and real-time visibility</p>
+				</div>
+				<div class="tech-grid">
+					<div class="tech-card">
+						<img src="/xero-logo.png" alt="Xero" class="tech-logo">
+						<h3>Xero Certified</h3>
+						<p>Cloud-based accounting software that gives you real-time access to your financial data anywhere, anytime.</p>
+						<div class="tech-benefits">
+							<span class="benefit-tag">Real-time data</span>
+							<span class="benefit-tag">Mobile access</span>
+							<span class="benefit-tag">Bank feeds</span>
+						</div>
+					</div>
+					<div class="tech-card">
+						<div class="tech-icon">
+							<i class="ri-cloud-line"></i>
+						</div>
+						<h3>Cloud-First Approach</h3>
+						<p>Secure, accessible, and always up-to-date. Access your financial information from anywhere with bank-level security.</p>
+						<div class="tech-benefits">
+							<span class="benefit-tag">256-bit encryption</span>
+							<span class="benefit-tag">Daily backups</span>
+							<span class="benefit-tag">Multi-device sync</span>
+						</div>
+					</div>
+					<div class="tech-card">
+						<div class="tech-icon">
+							<i class="ri-robot-line"></i>
+						</div>
+						<h3>Automated Processes</h3>
+						<p>Smart automation reduces errors and speeds up processing while maintaining complete accuracy and control.</p>
+						<div class="tech-benefits">
+							<span class="benefit-tag">Auto-categorization</span>
+							<span class="benefit-tag">Smart matching</span>
+							<span class="benefit-tag">Error detection</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Pricing Section -->
+		<section class="section">
+			<div class="container">
+				<div class="section-header text-center">
+					<h2>Transparent <span class="text-gradient">Pricing</span></h2>
+					<p>Choose the package that fits your business needs with no hidden fees</p>
+				</div>
+				<div class="pricing-grid">
+					<div class="pricing-card">
+						<div class="pricing-header">
+							<h3>Starter</h3>
+							<div class="price">
+								<span class="currency">£</span>
+								<span class="amount">199</span>
+								<span class="period">/month</span>
+							</div>
+							<p>Perfect for small businesses with basic bookkeeping needs</p>
+						</div>
+						<ul class="pricing-features">
+							<li><i class="ri-check-line"></i> Up to 50 transactions/month</li>
+							<li><i class="ri-check-line"></i> Monthly financial statements</li>
+							<li><i class="ri-check-line"></i> Bank reconciliation</li>
+							<li><i class="ri-check-line"></i> VAT return support</li>
+							<li><i class="ri-check-line"></i> Email support</li>
+						</ul>
+						<a href="#contact" class="btn btn-outline btn-full">Get Started</a>
+					</div>
+					<div class="pricing-card featured">
+						<div class="pricing-badge">Most Popular</div>
+						<div class="pricing-header">
+							<h3>Professional</h3>
+							<div class="price">
+								<span class="currency">£</span>
+								<span class="amount">399</span>
+								<span class="period">/month</span>
+							</div>
+							<p>Comprehensive solution for growing businesses</p>
+						</div>
+						<ul class="pricing-features">
+							<li><i class="ri-check-line"></i> Up to 150 transactions/month</li>
+							<li><i class="ri-check-line"></i> Monthly financial statements</li>
+							<li><i class="ri-check-line"></i> Weekly bank reconciliation</li>
+							<li><i class="ri-check-line"></i> VAT return preparation</li>
+							<li><i class="ri-check-line"></i> Accounts payable/receivable</li>
+							<li><i class="ri-check-line"></i> Monthly business review</li>
+							<li><i class="ri-check-line"></i> Phone & email support</li>
+						</ul>
+						<a href="#contact" class="btn btn-primary btn-full">Get Started</a>
+					</div>
+					<div class="pricing-card">
+						<div class="pricing-header">
+							<h3>Enterprise</h3>
+							<div class="price">
+								<span class="currency">£</span>
+								<span class="amount">699</span>
+								<span class="period">/month</span>
+							</div>
+							<p>Full-service solution for established businesses</p>
+						</div>
+						<ul class="pricing-features">
+							<li><i class="ri-check-line"></i> Unlimited transactions</li>
+							<li><i class="ri-check-line"></i> Weekly financial statements</li>
+							<li><i class="ri-check-line"></i> Daily bank reconciliation</li>
+							<li><i class="ri-check-line"></i> Complete VAT management</li>
+							<li><i class="ri-check-line"></i> Full accounts management</li>
+							<li><i class="ri-check-line"></i> Weekly business reviews</li>
+							<li><i class="ri-check-line"></i> Priority support</li>
+							<li><i class="ri-check-line"></i> Custom reporting</li>
+						</ul>
+						<a href="#contact" class="btn btn-outline btn-full">Get Started</a>
+					</div>
+				</div>
+				<div class="pricing-note">
+					<p><strong>All packages include:</strong> Xero setup and training, secure document storage, and dedicated account manager</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section class="section bg-primary text-white">
+			<div class="container text-center">
+				<h2>Ready to Get Your Books in Order?</h2>
+				<p class="cta-description">Join hundreds of businesses who trust us with their financial records. Get started with a free consultation and see the difference professional bookkeeping makes.</p>
+				<div class="cta-buttons">
+					<a href="#contact" class="btn btn-white btn-large">
+						<i class="ri-phone-line"></i>
+						Book Free Consultation
+					</a>
+					<a href="tel:+441234567890" class="btn btn-outline-white btn-large">
+						<i class="ri-phone-line"></i>
+						Call Now
+					</a>
+				</div>
+				<div class="cta-guarantee">
+					<i class="ri-shield-check-line"></i>
+					<span>30-day money-back guarantee • No setup fees • Cancel anytime</span>
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer client:load />
+</Layout>
+
+<style>
+.service-hero {
+	background: linear-gradient(135deg, #00252c 0%, #1a4b56 50%, #2d6a77 100%);
+	color: white;
+	padding: 120px 0 80px;
+	position: relative;
+	overflow: hidden;
+}
+
+.service-hero::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: 
+		url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23B9F8B1" opacity="0.1"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>');
+	background-position: 85% 15%;
+	background-repeat: no-repeat;
+	background-size: 100px 100px;
+	pointer-events: none;
+}
+
+.service-hero-content {
+	max-width: 800px;
+	text-align: center;
+	position: relative;
+	z-index: 2;
+}
+
+.breadcrumb {
+	margin-bottom: 20px;
+	opacity: 0.8;
+}
+
+.breadcrumb a {
+	color: #B9F8B1;
+	text-decoration: none;
+}
+
+.breadcrumb span {
+	color: white;
+}
+
+.service-hero h1 {
+	font-size: 3.5rem;
+	font-weight: 700;
+	margin-bottom: 24px;
+	line-height: 1.2;
+}
+
+.hero-description {
+	font-size: 1.25rem;
+	margin-bottom: 40px;
+	opacity: 0.95;
+	line-height: 1.6;
+}
+
+.hero-stats {
+	display: flex;
+	justify-content: center;
+	gap: 40px;
+	margin-bottom: 40px;
+	flex-wrap: wrap;
+}
+
+.stat {
+	text-align: center;
+}
+
+.stat-number {
+	display: block;
+	font-size: 2.5rem;
+	font-weight: bold;
+	color: #B9F8B1;
+	margin-bottom: 5px;
+}
+
+.stat-label {
+	font-size: 0.9rem;
+	opacity: 0.8;
+}
+
+.hero-buttons {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.features-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	gap: 30px;
+	margin-top: 60px;
+}
+
+.feature-card {
+	background: white;
+	padding: 40px 30px;
+	border-radius: 12px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+	width: 70px;
+	height: 70px;
+	background: linear-gradient(135deg, #B9F8B1, #a8e7a0);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 24px;
+}
+
+.feature-icon i {
+	font-size: 32px;
+	color: #00252c;
+}
+
+.feature-card h3 {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-bottom: 16px;
+	color: #00252c;
+}
+
+.feature-card p {
+	color: #666;
+	margin-bottom: 20px;
+	line-height: 1.6;
+}
+
+.feature-card ul {
+	list-style: none;
+	padding: 0;
+}
+
+.feature-card ul li {
+	padding: 8px 0;
+	color: #555;
+	position: relative;
+	padding-left: 20px;
+}
+
+.feature-card ul li::before {
+	content: '✓';
+	position: absolute;
+	left: 0;
+	color: #B9F8B1;
+	font-weight: bold;
+}
+
+.tech-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 40px;
+	margin-top: 60px;
+}
+
+.tech-card {
+	background: white;
+	padding: 40px;
+	border-radius: 12px;
+	text-align: center;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease;
+}
+
+.tech-card:hover {
+	transform: translateY(-5px);
+}
+
+.tech-logo {
+	height: 60px;
+	margin-bottom: 24px;
+}
+
+.tech-icon {
+	width: 80px;
+	height: 80px;
+	background: linear-gradient(135deg, #B9F8B1, #a8e7a0);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 24px;
+}
+
+.tech-icon i {
+	font-size: 36px;
+	color: #00252c;
+}
+
+.tech-card h3 {
+	font-size: 1.5rem;
+	margin-bottom: 16px;
+	color: #00252c;
+}
+
+.tech-benefits {
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 20px;
+}
+
+.benefit-tag {
+	background: #f0f9ff;
+	color: #1a4b56;
+	padding: 6px 12px;
+	border-radius: 20px;
+	font-size: 0.875rem;
+	font-weight: 500;
+}
+
+.pricing-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 30px;
+	margin-top: 60px;
+}
+
+.pricing-card {
+	background: white;
+	border-radius: 12px;
+	padding: 40px 30px;
+	text-align: center;
+	position: relative;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-card.featured {
+	border: 3px solid #B9F8B1;
+	transform: scale(1.05);
+}
+
+.pricing-badge {
+	position: absolute;
+	top: -12px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #B9F8B1;
+	color: #00252c;
+	padding: 6px 20px;
+	border-radius: 20px;
+	font-size: 0.875rem;
+	font-weight: 600;
+}
+
+.pricing-header h3 {
+	font-size: 1.5rem;
+	margin-bottom: 16px;
+	color: #00252c;
+}
+
+.price {
+	margin-bottom: 16px;
+}
+
+.currency {
+	font-size: 1.5rem;
+	vertical-align: top;
+	color: #666;
+}
+
+.amount {
+	font-size: 3rem;
+	font-weight: bold;
+	color: #00252c;
+}
+
+.period {
+	font-size: 1rem;
+	color: #666;
+}
+
+.pricing-features {
+	list-style: none;
+	padding: 0;
+	margin: 30px 0;
+	text-align: left;
+}
+
+.pricing-features li {
+	padding: 12px 0;
+	border-bottom: 1px solid #f0f0f0;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.pricing-features li i {
+	color: #B9F8B1;
+	font-size: 1.2rem;
+}
+
+.pricing-note {
+	text-align: center;
+	margin-top: 40px;
+	padding: 20px;
+	background: #f8f9fa;
+	border-radius: 8px;
+}
+
+.bg-primary {
+	background: linear-gradient(135deg, #1a4b56, #00252c);
+}
+
+.cta-description {
+	font-size: 1.25rem;
+	margin-bottom: 40px;
+	opacity: 0.9;
+}
+
+.cta-buttons {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-bottom: 30px;
+}
+
+.cta-guarantee {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	font-size: 0.9rem;
+	opacity: 0.8;
+}
+
+.cta-guarantee i {
+	font-size: 1.2rem;
+	color: #B9F8B1;
+}
+
+@media (max-width: 768px) {
+	.service-hero {
+		padding: 100px 0 60px;
+	}
+	
+	.service-hero h1 {
+		font-size: 2.5rem;
+	}
+	
+	.hero-stats {
+		gap: 30px;
+	}
+	
+	.stat-number {
+		font-size: 2rem;
+	}
+	
+	.hero-buttons {
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.features-grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+	
+	.pricing-card.featured {
+		transform: none;
+	}
+}
+</style>
