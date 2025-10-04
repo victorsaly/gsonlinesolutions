@@ -6,8 +6,6 @@ import vue from '@astrojs/vue';
 // https://astro.build/config
 export default defineConfig({
   integrations: [vue()],
-  site: 'https://victorsaly.github.io',
-  base: '/gsonlinesolutions',
   vite: {
     server: {
       // Disable caching in development
