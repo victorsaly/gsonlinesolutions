@@ -43,10 +43,24 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
                 <li><a class="dropdown-item" href="#services">All Services</a></li>
-                <li><a class="dropdown-item" href="#bookkeeping">Bookkeeping</a></li>
-                <li><a class="dropdown-item" href="#tax-prep">Tax Preparation</a></li>
-                <li><a class="dropdown-item" href="#consulting">Financial Consulting</a></li>
-                <li><a class="dropdown-item" href="#payroll">Payroll Management</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/services/bookkeeping">
+                  <i class="ri-file-list-3-line"></i>
+                  Professional Bookkeeping
+                </a></li>
+                <li><a class="dropdown-item" href="/services/tax-preparation">
+                  <i class="ri-calculator-line"></i>
+                  Tax Preparation & Planning
+                </a></li>
+                <li><a class="dropdown-item" href="/services/financial-controller">
+                  <i class="ri-line-chart-line"></i>
+                  Fractional Financial Controller
+                </a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/extended-services">
+                  <i class="ri-more-line"></i>
+                  Extended Services
+                </a></li>
               </ul>
             </li>
             <li class="nav-item">
@@ -242,6 +256,39 @@ onMounted(() => {
 
 .navbar-cta .btn i {
   font-size: 16px;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 37, 44, 0.15);
+  border-radius: 12px;
+  padding: 12px 0;
+  margin-top: 8px;
+}
+
+.dropdown-item {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item i {
+  font-size: 16px;
+  color: var(--primaryColor);
+  width: 20px;
+}
+
+.dropdown-item:hover {
+  background: linear-gradient(135deg, rgba(185, 248, 177, 0.1), rgba(168, 231, 160, 0.1));
+  color: var(--primaryColor);
+}
+
+.dropdown-divider {
+  margin: 8px 16px;
+  border-color: rgba(0, 37, 44, 0.1);
 }
 
 /* Mobile Responsive */
