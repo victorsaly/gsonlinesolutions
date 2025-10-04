@@ -61,7 +61,7 @@
           <div class="approach-visual slide-in-right">
             <div class="founder-profile">
               <div class="founder-image">
-                <img src="/GosiaProfile.jpg" alt="Gosia Saly - Founder of GS Online Solutions" class="profile-photo" />
+                <img src="/gsonlinesolutions/GosiaProfile.jpg" alt="Gosia Saly - Founder of GS Online Solutions" class="profile-photo" />
                 <div class="founder-badge">
                   <span>Founder & Financial Expert</span>
                 </div>
@@ -93,14 +93,14 @@
                   <h5 class="text-gradient mb-6">Professional Certifications</h5>
                   <div class="certifications-grid">
                     <div class="certification-badge card card-minimal">
-                      <img src="/xero-logo.png" alt="Xero Advisor Certified" class="cert-logo" />
+                      <img src="/gsonlinesolutions/xero-logo.png" alt="Xero Advisor Certified" class="cert-logo" />
                       <div class="cert-info">
                         <h6>Xero Advisor Certified</h6>
                         <p>Cloud accounting expertise</p>
                       </div>
                     </div>
                     <div class="certification-badge card card-minimal">
-                      <img src="/icb_logo.png" alt="ICB Member" class="cert-logo" />
+                      <img src="/gsonlinesolutions/icb_logo.png" alt="ICB Member" class="cert-logo" />
                       <div class="cert-info">
                         <h6>ICB Member</h6>
                         <p>Institute of Certified Bookkeepers</p>

@@ -5,7 +5,7 @@
       <div class="container">
         <!-- Brand Logo -->
         <a class="navbar-brand" href="/">
-          <img src="/logo_gs.svg" alt="GS Online Solutions" class="logo-img">
+          <img src="/gsonlinesolutions/logo_gs.svg" alt="GS Online Solutions" class="logo-img">
         </a>
 
         <!-- Mobile Menu Toggle -->

@@ -4,7 +4,7 @@
       <div class="footer-content">
         <div class="footer-section">
           <div class="footer-brand">
-            <img src="/logo_gs.svg" alt="GS Online Solutions" class="footer-logo" />
+            <img src="/gsonlinesolutions/logo_gs.svg" alt="GS Online Solutions" class="footer-logo" />
             <p class="footer-description">
               Founded by Gosia Saly, GS Online Solutions provides personalized accounting 
               and financial solutions for growing businesses. We're committed to building 

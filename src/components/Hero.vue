@@ -21,11 +21,11 @@
             <!-- Trust Indicators -->
             <div class="trust-indicators">
               <div class="trust-item">
-                <img src="/xero-logo.png" alt="Xero Certified" class="cert-logo">
+                <img src="/gsonlinesolutions/xero-logo.png" alt="Xero Certified" class="cert-logo">
                 <span>Xero Certified Partner</span>
               </div>
               <div class="trust-item">
-                <img src="/icb_logo.png" alt="ICB Member" class="cert-logo">
+                <img src="/gsonlinesolutions/icb_logo.png" alt="ICB Member" class="cert-logo">
                 <span>ICB Qualified</span>
               </div>
               <div class="trust-item">
@@ -323,7 +323,7 @@ onBeforeUnmount(() => {
 .hero-slide:nth-child(1) {
   background: 
     linear-gradient(135deg, rgba(0, 37, 44, 0.8), rgba(26, 75, 86, 0.7)), 
-    url('/hero/hero_slide_1.jpg');
+    url('/gsonlinesolutions/hero/hero_slide_1.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -331,7 +331,7 @@ onBeforeUnmount(() => {
 .hero-slide:nth-child(2) {
   background: 
     linear-gradient(135deg, rgba(0, 37, 44, 0.8), rgba(26, 75, 86, 0.7)), 
-    url('/hero/hero_slide_1.jpg');
+    url('/gsonlinesolutions/hero/hero_slide_1.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -339,7 +339,7 @@ onBeforeUnmount(() => {
 .hero-slide:nth-child(3) {
   background: 
     linear-gradient(135deg, rgba(0, 37, 44, 0.8), rgba(26, 75, 86, 0.7)), 
-    url('/hero/hero_slide_1.jpg');
+    url('/gsonlinesolutions/hero/hero_slide_1.jpg');
   background-size: cover;
   background-position: center;
 }
