@@ -280,9 +280,11 @@ onBeforeUnmount(() => {
 <style scoped>
 .hero {
   height: 100vh;
+  min-height: calc(100vh - 120px); /* Account for desktop navbar */
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #00252c 0%, #1a4b56 50%, #2d6a77 100%);
+  padding-top: 120px; /* Space for fixed navbar */
 }
 
 .hero-slider-one {
@@ -296,7 +298,8 @@ onBeforeUnmount(() => {
 }
 
 .swiper-slide {
-  height: 100vh;
+  height: calc(100vh - 120px);
+  min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -305,7 +308,7 @@ onBeforeUnmount(() => {
   color: #ffffff;
   position: relative;
   overflow: hidden;
-  padding: 60px 20px;
+  padding: 80px 20px 60px 20px;
 }
 
 /* Hero Slide Base Styling - Ensure all slides have background */
@@ -313,7 +316,7 @@ onBeforeUnmount(() => {
   background-size: cover !important;
   background-position: center !important;
   background-attachment: scroll; /* Better for mobile performance */
-  min-height: 100vh;
+  min-height: calc(100vh - 120px);
   position: relative;
   /* Ensure touch events work properly on mobile */
   touch-action: pan-y;
@@ -672,12 +675,14 @@ onBeforeUnmount(() => {
   /* Mobile Hero Adjustments */
   .hero {
     height: 100vh;
-    min-height: 600px;
+    min-height: calc(100vh - 100px); /* Account for mobile navbar */
+    padding-top: 100px; /* Space for mobile fixed navbar */
   }
   
   .swiper-slide {
-    padding: 40px 15px;
-    min-height: 100vh;
+    padding: 60px 15px 40px 15px;
+    min-height: calc(100vh - 100px);
+    height: calc(100vh - 100px);
   }
   
   /* Mobile-optimized background positioning */
@@ -829,6 +834,17 @@ onBeforeUnmount(() => {
 
 @media (max-width: 480px) {
   /* Extra small mobile adjustments */
+  .hero {
+    padding-top: 84px; /* Space for smallest mobile navbar */
+    min-height: calc(100vh - 84px);
+  }
+  
+  .swiper-slide {
+    height: calc(100vh - 84px);
+    min-height: calc(100vh - 84px);
+    padding: 50px 15px 30px 15px;
+  }
+  
   .hero h1 {
     font-size: 1.9rem;
     line-height: 1.3;
